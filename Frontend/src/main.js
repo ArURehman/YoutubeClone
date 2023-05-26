@@ -6,11 +6,10 @@ import './assets/style.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faYoutube } from '@fortawesome/free-brands-svg-icons'
-import { faBars, faMagnifyingGlass, faVideo, faCircleUser, faBell } from '@fortawesome/free-solid-svg-icons'
-import {  } from '@fortawesome/free-regular-svg-icons'
+import { faBars, faMagnifyingGlass, faBell, faCircleUser } from '@fortawesome/free-solid-svg-icons'
 
 import App from './App.vue'
 
-library.add(faYoutube, faBars, faMagnifyingGlass, faVideo, faCircleUser, faBell)
+library.add(faYoutube, faBars, faMagnifyingGlass, faBell, faCircleUser)
 
 createApp(App).component('font-awesome-icon', FontAwesomeIcon).use(router).mount('#app')

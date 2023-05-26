@@ -6,7 +6,8 @@ export default {
   ],
   theme: {
     fontFamily: {
-      'Roboto': ['Roboto', 'sans-serif']
+      'Roboto': ['Roboto', 'sans-serif'],
+      'Gothic': ['Pathway Gothic One', 'sans-serif']
     },
     extend: {
       spacing:{
@@ -15,8 +16,15 @@ export default {
         '35': '8.75rem'
       },
       colors: {
-        'almostBlack': '#0f0f0f',
-        'almostGray': '#282828'
+        'textWhite': "#D3D3D3",
+        'notifRed': "#CC0000",
+        'pVidCompBlack': "#323232",
+        'almostBlack': '#0F0F0F',
+        'ytRed': '#FF0000',
+        'highlightBlack': '#272727',
+        'gray': '#686766',
+        'searchBarGray': '#222222',
+        'highlightBlue': '#377CB7'
       }
     },
   },
