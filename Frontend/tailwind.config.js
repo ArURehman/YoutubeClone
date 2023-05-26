@@ -22,7 +22,7 @@ export default {
         'almostBlack': '#0F0F0F',
         'ytRed': '#FF0000',
         'highlightBlack': '#272727',
-        'gray': '#686766',
+        'gray': '#3d3d3d',
         'searchBarGray': '#222222',
         'highlightBlue': '#377CB7'
       }
