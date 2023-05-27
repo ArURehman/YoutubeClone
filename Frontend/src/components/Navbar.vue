@@ -1,40 +1,34 @@
 <template>
-    <div class="flex justify-between h-10 py-2 px-2 text-white bg-almostBlack font-Roboto font-[400] text-sm">
-      <div class="w-36">
-        <button class="px-2"><font-awesome-icon icon="fa-solid fa-bars" size="lg" style="color: #e6ebf5;" /></button>
-        <button class="ml-mx-2"><font-awesome-icon icon="fa-brands fa-youtube" size="lg" style="color: #fd0d0d;" /><span>Youtube</span></button>
-      </div>
-      <div class="search-bar flex justify-center">
-        <input class="h-6 text-xs font-[400] text-white w-96 px-2 bg-almostBlack border-almostGray border-2 rounded-l-xl" type="text" placeholder=" Search">
-        <button class="h-6 px-3 bg-almostGray border-almostGray border-2 rounded-r-xl"><font-awesome-icon class="relative -left-[2px] -bottom-[0.5px]" icon="fa-solid fa-magnifying-glass" size="sm" style="color: #e6ebf5;" /></button>
-      </div>
-      <div v-if="!signedIn">
-        <button class="mx-2"><font-awesome-icon icon="fa-solid fa-circle-user" size="lg" style="color: #e6ebf5;"/><span class="mx-1">Sign In</span></button>
-      </div>
-      <div v-else class="flex justify-between gap-3 px-1">
-        <button><font-awesome-icon icon="fa-solid fa-bell" size="sm" style="color: #e6ebf5;" /></button>
-        <button><font-awesome-icon icon="fa-solid fa-circle-user" size="lg" style="color: #e6ebf5;"/></button>
-      </div>
+  <nav class="h-10 px-5 py-0 flex justify-between">
+    <div class="my-auto flex justify-between align-middle gap-5">
+      <button class="mt-[0.063em]"><font-awesome-icon class="stroke-[0.5]" icon="fa-solid fa-bars" size="sm" style="color: #a5a5a5;" /></button>
+      <router-link :to="{ name : 'Home' }"><font-awesome-icon icon="fa-brands fa-youtube" size="lg" style="color: #ff0000;" /><span class="font-Gothic text-white tracking-normal after:content-['PK'] after:text-[9px] after:text-[#7c7c7c] after:relative after:-top-3 after:left-[0.5px] after:font-extralight">YouTube</span></router-link>
     </div>
+    <div class="mt-[9px] flex justify-between gap-0 align-middle">
+      <input class="h-[26px] w-96 px-2 bg-inherit border-searchBarGray border-2 text-textWhite text-xs rounded-l-xl" placeholder="Search" v-model="searchText" type="text" name="" id="">
+      <router-link :to="{ name : 'Search' }"><button class="w-9 pr-[1px] my-auto h-[26px] bg-searchBarGray rounded-r-xl"><font-awesome-icon class="stroke-[0.5p]" icon="fa-solid fa-magnifying-glass" size="xs" style="color: #a5a5a5;" /></button></router-link>
+    </div>
+    <div class="my-auto flex justify-between gap-6 align-middle">
+      <button v-if="signedIn" class="mt-1"><font-awesome-icon icon="fa-solid fa-bell" size="sm" style="color: #a5a5a5;" /></button>
+      <button v-if="signedIn"><img class="w-[26px] h-[26px] rounded-full" src="../images/cameron.png" alt=""></button>
+      <div v-else class="mt-1 w-19 h-8 rounded-full flex align-middle justify-between border-highlightBlue border-2 px-[2px] pt-[1px]"><button @click="emitLoginToggle"><font-awesome-icon icon="fa-solid fa-circle-user" size="lg" style="color: #377cb7;" /><span class="text-highlightBlue font-Roboto ml-1 text-xs relative bottom-[2px]">Sign In</span></button></div>
+    </div>
+  </nav>
 </template>
 
 <script>
-import { ref } from 'vue'
 export default{
   name: 'Navbar',
-  setup(){
-    const signedIn = ref(false)
-    const countNotif = ref(0)
-
-    const changeSignedIn = () => {
-      signedIn.value = !signedIn.value
+  data(){
+    return {
+      signedIn: false,
+      searchText: ''
     }
-
-    const increaseCountNotif = () => {
-      countNotif.value++
+  },
+  methods: {
+    emitLoginToggle(){
+      this.$emit('openLogin')
     }
-
-    return {signedIn, countNotif, increaseCountNotif, changeSignedIn}
   }
 }
 
