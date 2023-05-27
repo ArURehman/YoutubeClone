@@ -9,7 +9,7 @@
                 <p class="text-[9px] text-[#a5a5a5]">200M Views &bull; 12 months ago</p>
             </div>
         </div>
-    </div>
+    </div> 
 </template>
 
 <script>

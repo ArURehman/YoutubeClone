@@ -11,30 +11,24 @@
     <div class="my-auto flex justify-between gap-6 align-middle">
       <button v-if="signedIn" class="mt-1"><font-awesome-icon icon="fa-solid fa-bell" size="sm" style="color: #a5a5a5;" /></button>
       <button v-if="signedIn"><img class="w-[26px] h-[26px] rounded-full" src="../images/cameron.png" alt=""></button>
-      <div v-else class="mt-1 w-19 h-8 rounded-full flex align-middle justify-between border-highlightBlue border-2 px-[2px] pt-[1px]"><button><font-awesome-icon icon="fa-solid fa-circle-user" size="lg" style="color: #377cb7;" /><span class="text-highlightBlue font-Roboto ml-1 text-xs relative bottom-[2px]">Sign In</span></button></div>
+      <div v-else class="mt-1 w-19 h-8 rounded-full flex align-middle justify-between border-highlightBlue border-2 px-[2px] pt-[1px]"><button @click="emitLoginToggle"><font-awesome-icon icon="fa-solid fa-circle-user" size="lg" style="color: #377cb7;" /><span class="text-highlightBlue font-Roboto ml-1 text-xs relative bottom-[2px]">Sign In</span></button></div>
     </div>
   </nav>
 </template>
 
 <script>
-import { ref } from 'vue'
-
 export default{
   name: 'Navbar',
-  setup(){
-    const signedIn = ref(false)
-    const countNotif = ref(0)
-    const searchText = ref('')
-
-    const changeSignedIn = () => {
-      signedIn.value = !signedIn.value
+  data(){
+    return {
+      signedIn: false,
+      searchText: ''
     }
-
-    const increaseCountNotif = () => {
-      countNotif.value++
+  },
+  methods: {
+    emitLoginToggle(){
+      this.$emit('openLogin')
     }
-
-    return {signedIn, countNotif, searchText, increaseCountNotif, changeSignedIn}
   }
 }
 
