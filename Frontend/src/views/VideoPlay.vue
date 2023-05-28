@@ -5,7 +5,7 @@
             <Comments/>
         </div>
         <div class="w-[35rem]">
-            <SHVideo :view-desc="false" :change-styles="true"/>
+            <SHVideo :view-desc="false" :change-styles="true" :add-hover-effect="false"/>
         </div>
     </div>
 </template>

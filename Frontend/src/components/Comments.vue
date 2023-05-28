@@ -5,13 +5,7 @@
             <MakeComment :is-reply="false" type="Comment"/>
         </div>
         <div class="mt-2">
-            <CommentList/>
-            <CommentList/>
-            <CommentList/>
-            <CommentList/>
-            <CommentList/>
-            <CommentList/>
-            <CommentList/>
+            <CommentList :is-reply="false"/>
         </div>
     </div>
 </template>

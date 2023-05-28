@@ -1,6 +1,6 @@
 <template>
   <div class="mx-52 mt-6 flex-col">
-    <SHVideo :view-desc="true" :change-styles="false"/>
+    <SHVideo :view-desc="true" :change-styles="false" :add-hover-effect="true"/>
   </div>
 </template>
 

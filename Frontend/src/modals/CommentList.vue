@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-3 font-medium flex w-full justify-between gap-2">
+    <div class="mt-3 font-medium flex w-full justify-between gap-2" :class="{'pl-9' : isReply}">
             <div class="w-12"><img class="w-7 h-7 mt-2 rounded-full" src="../images/cameron.png" alt=""></div>
             <div>
                 <p class="text-[0.7rem] text-[#a5a5a5]">Username &bull; 20 years ago</p>
@@ -21,6 +21,7 @@ import MakeComment from './MakeComment.vue';
 export default{
     name: 'CommentList',
     components: {MakeComment},
+    props: ['isReply'],
     data(){
         return{
             reply: false

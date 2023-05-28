@@ -4,6 +4,7 @@ import Search from '../views/Search.vue'
 import History from '../views/History.vue'
 import VideoPlay from '../views/VideoPlay.vue'
 import Channel from '../views/Channel.vue'
+import Library from '../views/Library.vue'
 
 const routes = [
     {
@@ -30,6 +31,11 @@ const routes = [
         path: '/channel',
         name: 'Channel',
         component: Channel
+    },
+    {
+        path: '/library',
+        name: 'Library',
+        component: Library
     }
 ];
 
