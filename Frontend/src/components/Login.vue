@@ -1,5 +1,5 @@
 <template>
-    <div @click.self="emitCloseLogin();emitOpenSignUp()" class="w-full h-full bg-searchBarGray absolute text-white">
+    <div @click.self="emitCloseLogin()" class="w-full h-full bg-searchBarGray absolute text-white">
         <div class="w-72 h-[22rem] bg-almostBlack m-auto relative z-30 top-36 rounded-xl p-4 flex-col">
             <div class="mx-[4.7rem] mt-5 flex gap-1">
                 <font-awesome-icon icon="fa-brands fa-youtube" size="2xl" style="color: #ff0000;" />
@@ -12,7 +12,7 @@
                 </div>
                 <div class="pb-8 pt-2 pl-[10px] flex gap-2 font-Roboto text-sm">
                     <font-awesome-icon class="mt-2" icon="fa-solid fa-lock" size="md" style="color: #ffffff;" />
-                    <input placeholder="Password" class="bg-almostBlack border-b-2 border-b-white font-light" type="text">
+                    <input placeholder="Password" class="bg-almostBlack border-b-2 border-b-white font-light" type="password">
                 </div>
                 <div class="mt-5 px-2 flex justify-around gap-2">
                     <button class="ease-in-out duration-300 border-2 border-[#ff0000] hover:font-medium rounded-xl px-4 py-2 hover:bg-[#ff0000]">Login</button>
