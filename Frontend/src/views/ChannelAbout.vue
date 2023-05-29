@@ -3,17 +3,31 @@
         <div class="col-span-3 sm:col-span-2 flex-col justify-start pr-24">
             <div class="flex justify-start gap-2 py-2">
                 <h5 class="text-sm font-medium my-2">Description</h5>
-                <button class="text-xs text-textWhite bg-searchBarGray px-3 rounded-3xl hover:bg-gray ease-in-out duration-300" @click="handleDescEdit">Edit</button>
+                <button v-if="!editingDesc" class="text-xs text-textWhite bg-searchBarGray px-3 rounded-3xl hover:bg-gray ease-in-out duration-300" @click="handleDescEdit">Edit</button>
             </div>
-            <P class="text-xs">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis corrupti harum quisquam voluptatum quas perspiciatis rem, blanditiis est obcaecati, voluptate sed, provident hic eos doloremque illo nesciunt repellat cumque sapiente. Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore rem ex mollitia quas obcaecati, adipisci, in assumenda fuga sapiente blanditiis sed perspiciatis numquam necessitatibus dolorem temporibus dicta non consectetur molestiae? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis minus dolore iusto optio rem, dicta eaque perferendis voluptatum maiores eligendi omnis id dolor expedita nostrum dolores repellat quidem. Quis, ipsa.</P>
+            <P v-if="!editingDesc" class="text-xs mt-1">{{ channel_desc }}</P>
+            <div v-if="editingDesc" class="">
+                <input v-model="edited_desc" class="h-auto w-full min-h-10 p-2 bg-searchBarGray rounded" ref="descInput" type="text">
+                <div class="flex justify-end gap-2 mt-1">
+                    <button @click="handleDescCancel" class="py-2 px-3 bg-searchBarGray hover:bg-gray ease-in-out duration-300 rounded-2xl">Cancel</button>
+                    <button @click="handleDescSave" class="py-2 px-3 bg-highlightBlue hover:bg-[#478ac4] ease-in-out duration-300 rounded-2xl">Save</button>
+                </div>
+            </div>
             <hr class="w-full bg-almostBlack my-7 border-1 border-gray">
             <div class="flex justify-start gap-2 py-2">
                 <h5 class="text-sm font-medium my-2">Details</h5>
-                <button class="text-xs text-textWhite bg-searchBarGray px-3 rounded-3xl hover:bg-gray ease-in-out duration-300">Edit</button>
+                <button v-if="!editingEmail" @click="handleEmailEdit" class="text-xs text-textWhite bg-searchBarGray px-3 rounded-3xl hover:bg-gray ease-in-out duration-300">Edit</button>
             </div>
             <div class="text-xs flex gap-4 mt-2">
-                <p class="text-[#a5a5a5]">For business inquiries: </p>
-                <p>example@email.com</p>
+                <p class="text-[#a5a5a5]" :class="{'mt-2' : editingEmail}">For business inquiries: </p>
+                <p v-if="!editingEmail">{{ channel_email }}</p>
+                <div v-if="editingEmail" class="">
+                    <input v-model="edited_email" class="h-auto w-full min-h-10 p-2 bg-searchBarGray rounded" ref="descInput" type="text">
+                    <div class="flex justify-end gap-2 mt-1">
+                        <button @click="handleEmailCancel" class="py-2 px-3 bg-searchBarGray hover:bg-gray ease-in-out duration-300 rounded-2xl">Cancel</button>
+                        <button @click="handleEmailSave" class="py-2 px-3 bg-highlightBlue hover:bg-[#478ac4] ease-in-out duration-300 rounded-2xl">Save</button>
+                </div>
+            </div>
             </div>
             <hr class="w-full bg-almostBlack my-7 border-1 border-gray">
             <div class="flex justify-start gap-1">
@@ -40,7 +54,10 @@ export default{
         return{
             channel_desc: "",
             edited_desc: "",
-            editingDesc: false
+            editingDesc: false,
+            channel_email: "",
+            edited_email: "",
+            editingEmail: false
         }
     },
     methods: {
@@ -48,13 +65,25 @@ export default{
             this.edited_desc = this.channel_desc
             this.editingDesc = true
         },
-        saveDescEdit(){
+        handleDescSave(){
             this.channel_desc = this.edited_desc
             this.editingDesc = false
         },
         handleDescCancel(){
             this.edited_desc = ""
             this.editingDesc = false
+        },
+        handleEmailEdit(){
+            this.edited_email = this.channel_email
+            this.editingEmail = true
+        },
+        handleEmailSave(){
+            this.channel_email = this.edited_email
+            this.editingEmail = false
+        },
+        handleEmailCancel(){
+            this.edited_email = ""
+            this.editingEmail = false
         }
     }
 }
