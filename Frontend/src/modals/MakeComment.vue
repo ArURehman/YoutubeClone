@@ -18,7 +18,7 @@ export default{
     props: ['isReply', 'type'],
     data(){
         return{
-            commActive: true
+            commActive: false
         }
     },
     methods: {

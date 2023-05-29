@@ -1,5 +1,5 @@
 <template>
-    <div class="w-[16rem] h-[14rem] m-0 p-2 hover:bg-searchBarGray px-3 py-2 rounded-xl ease-in-out duration-200">
+    <div class="w-[16rem] h-[14rem] m-0 p-2 hover:bg-searchBarGray px-3 py-2 rounded-xl ease-in-out duration-200" :class="{'w-[14rem] h-[12rem]' : decSize}">
         <router-link :to="{name : 'VideoPlay'}"><img class="rounded-lg" src="../images/thumbnail1.png" alt=""></router-link>
         <div class="flex justify-start gap-1">
             <router-link :to="{name : 'Channel'}"><img class="w-12 h-9 rounded-full object-cover p-1 my-1" src="../images/cameron.png" alt=""></router-link>
@@ -18,6 +18,7 @@ import VideoPlay from '../views/VideoPlay.vue';
 export default{
     name: 'RcVideo',
     components: {VideoPlay},
+    props: ['decSize'],
     data(){
         return{
 

@@ -6,9 +6,9 @@
             <div class="flex justify-between mt-2 mb-4">
                 <div class="flex gap-5">
                     <div class="flex gap-2">
-                        <img class="w-9 h-9 rounded-full" src="../images/cameron.png" alt="">
+                        <router-link :to="{name : 'Channel'}"><img class="w-9 h-9 rounded-full" src="../images/cameron.png" alt=""></router-link>
                         <div >
-                            <p class="text-[12px] my-[2px]">Channel Name</p>
+                            <router-link :to="{name : 'Channel'}"><p class="text-[12px] my-[2px]">Channel Name</p></router-link>
                             <p class="text-[9px] text-[#a5a5a5]">200M Subscribers</p>
                         </div>
                     </div>
