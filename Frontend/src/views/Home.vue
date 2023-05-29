@@ -6,12 +6,13 @@
 
 <script>
 import RcVideo from '../modals/RcVideo.vue'; 
+import VideoPlay from './VideoPlay.vue';
 
 export default{
   name: 'Home',
-  components: {RcVideo},
-  setup(){
-
+  components: {RcVideo, VideoPlay},
+  methods: {
+    
   }
 }
 

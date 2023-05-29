@@ -4,6 +4,9 @@ import Search from '../views/Search.vue'
 import History from '../views/History.vue'
 import VideoPlay from '../views/VideoPlay.vue'
 import Channel from '../views/Channel.vue'
+import Library from '../views/Library.vue'
+import ChannelHome from '../views/ChannelHome.vue'
+import ChannelAbout from '../views/ChannelAbout.vue'
 
 const routes = [
     {
@@ -23,13 +26,31 @@ const routes = [
     },
     {
         path: '/video',
-        name: 'Video',
+        name: 'VideoPlay',
         component: VideoPlay
     },
     {
         path: '/channel',
         name: 'Channel',
-        component: Channel
+        redirect: { name : 'ChannelHome'},
+        component: Channel,
+        children: [
+            {
+                path: 'home',
+                name: 'ChannelHome',
+                component: ChannelHome
+            },
+            {
+                path: 'about',
+                name: 'ChannelAbout',
+                component: ChannelAbout
+            }
+        ]
+    },
+    {
+        path: '/library',
+        name: 'Library',
+        component: Library
     }
 ];
 

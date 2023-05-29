@@ -1,8 +1,8 @@
 <template>
   <nav class="h-10 px-5 py-0 flex justify-between">
     <div class="my-auto flex justify-between align-middle gap-5">
-      <button class="mt-[0.063em]"><font-awesome-icon class="stroke-[0.5]" icon="fa-solid fa-bars" size="sm" style="color: #a5a5a5;" /></button>
-      <router-link :to="{ name : 'Home' }"><font-awesome-icon icon="fa-brands fa-youtube" size="lg" style="color: #ff0000;" /><span class="font-Gothic text-white tracking-normal after:content-['PK'] after:text-[9px] after:text-[#7c7c7c] after:relative after:-top-3 after:left-[0.5px] after:font-extralight">YouTube</span></router-link>
+      <button @click="emitToggleSidebar" class="mt-[0.063em]"><font-awesome-icon class="stroke-[0.5]" icon="fa-solid fa-bars" size="sm" style="color: #a5a5a5;" /></button>
+      <router-link :to="{ name : 'Home' }"><font-awesome-icon icon="fa-brands fa-youtube" size="lg" style="color: #ff0000;" /><span class="font-Gothic text-white tracking-normal after:content-['PK'] after:text-[9px] after:text-[#7c7c7c] after:relative after:-top-3 after:left-[0.5px] after:font-extralight before:content[''] before:w-2 before:h-2 before:absolute before:-z-10 before:bg-white before:top-4 before:left-[3.75rem]">YouTube</span></router-link>
     </div>
     <div class="mt-[9px] flex justify-between gap-0 align-middle">
       <input class="h-[26px] w-96 px-2 bg-inherit border-searchBarGray border-2 text-textWhite text-xs rounded-l-xl" placeholder="Search" v-model="searchText" type="text" name="" id="">
@@ -28,6 +28,9 @@ export default{
   methods: {
     emitLoginToggle(){
       this.$emit('openLogin')
+    },
+    emitToggleSidebar(){
+      this.$emit('toggleSidebar')
     }
   }
 }

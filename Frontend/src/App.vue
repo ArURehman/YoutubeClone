@@ -1,13 +1,13 @@
 <template>
   <div class="flex flex-col h-screen">
     <div class="h-10 flex-none">
-      <Navbar @openLogin="changeLoginVisible"/>
+      <Navbar @openLogin="changeLoginVisible" @toggleSidebar="() => {sidebarIsVisible = !sidebarIsVisible}"/>
     </div>
     <div class="flex-1 flex">
-      <div class="w-40 flex-none">
+      <div class="w-40 flex-none" :class="{ 'hidden' : !sidebarIsVisible }">
         <Sidebar/>
       </div>
-      <div class="flex-1 overflow-y-auto">
+      <div class="flex-1 overflow-y-auto" :class="{ 'w-full' : !sidebarIsVisible }">
         <router-view/>
       </div>
     </div>
@@ -29,6 +29,7 @@ export default{
   setup(){
     let loginIsVisible = ref(false)
     let signUpIsVisible = ref(false)
+    let sidebarIsVisible = ref(true)
 
     const changeLoginVisible = () => {
       if(loginIsVisible.value != signUpIsVisible.value){
@@ -44,7 +45,7 @@ export default{
       signUpIsVisible.value = !signUpIsVisible.value
     }
 
-    return{loginIsVisible, signUpIsVisible, toggleSignUpVisible, changeLoginVisible}
+    return{loginIsVisible, signUpIsVisible, sidebarIsVisible, toggleSignUpVisible, changeLoginVisible}
   }
 }
 
