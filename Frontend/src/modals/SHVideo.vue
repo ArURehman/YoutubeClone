@@ -4,7 +4,7 @@
         <div class="w-36 flex-1">
             <div class="flex">
                 <router-link :to="{name : 'VideoPlay'}"><p class="text-[0.9rem] mt-0 mb-1" :class="{'mt-[2px]' : !viewDesc},{'text-[9.9px]' : changeStyles}, {'mb-1' : changeStyles}, {'font-semibold' : changeStyles}">This is the title of the video and it will be dynamic</p></router-link>
-                <button class="relative -right-32" :class="{ 'hidden': !isHovered }, {'hidden' : changeStyles}"><font-awesome-icon icon="fa-solid fa-ellipsis-vertical" size="xs" style="color: #ffffff;" /></button>
+                <button class="relative -right-32" :class="{ 'hidden': !isHovered }, {'hidden' : changeStyles}, {'-right-52' : isLibrary}"><font-awesome-icon icon="fa-solid fa-ellipsis-vertical" size="xs" style="color: #ffffff;" /></button>
             </div>
             <p class="text-[0.55rem] text-textWhite mb-2" :class="{'mt-2' : changeStyles}">200M Views &bull; 12 months ago</p>
             <router-link :to="{name : 'Channel'}"><div class="flex gap-2 mb-2">
@@ -18,7 +18,7 @@
 
 <script>
 export default{
-    props: ['viewDesc', 'changeStyles', 'addHoverEffect'],
+    props: ['viewDesc', 'changeStyles', 'addHoverEffect', 'isLibrary'],
     data(){
         return{
             isHovered: false
