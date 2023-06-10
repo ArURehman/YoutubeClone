@@ -21,6 +21,7 @@
 <script>
 import NotifMenu from './NotifMenu.vue'
 import UserMenu from './UserMenu.vue'
+import axios from 'axios'
 
 export default{
   name: 'Navbar',
@@ -40,6 +41,13 @@ export default{
     emitToggleSidebar(){
       this.$emit('toggleSidebar')
     }
+  },
+  mounted(){
+    axios.get('/api/test').then(res => {
+      console.log(res.data)
+    }).catch(err => {
+      console.log(err)
+    })
   }
 }
 
