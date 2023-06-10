@@ -9,7 +9,7 @@ const app = express()
 app.use(cors());
 app.use(express.json());
 
-app.get('/api', (req, res) => {console.log("Hello! I'm the Backend")})
+app.get('/api/test', (req, res) => {console.log("Hello! I'm the Backend")})
 
 //connect to database
 sql.connect(config)
@@ -17,6 +17,8 @@ sql.connect(config)
         console.log('Database connected successfully')
         //passing the pool to the app
         app.locals.db = pool
+
+        //start the server
         app.listen(port, () => {console.log('Listening on port: http://localhost:' + port)})
     })
     .catch((err) => {
