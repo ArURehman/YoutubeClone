@@ -14,7 +14,7 @@
             <hr class="border-none h-[2px] bg-gray my-1">   
             <div class="">
                 <p class="text-sm ml-1 font-medium">Notiifications & Preferences</p>
-                <PrefCheck pref="History"/>
+                <PrefCheck/>
             </div>
             <hr class="border-none h-[2px] bg-gray my-1">   
             <button class=" my-1 bg-almostBlack w-full h-9 px-3 py-1 hover:bg-gray hover:rounded-sm cursor-pointer flex justify-start ease-in-out duration-200">

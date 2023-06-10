@@ -1,11 +1,24 @@
 import express from 'express'
-import connectDB from './Database/dbConnect.js'
+import sql from 'mssql'
+import cors from 'cors'
+import config from './Database/dbConfig.js'
 
+const port = 3000
 const app = express()
-const port = 4000
+//Middleware
+app.use(cors());
+app.use(express.json());
 
-connectDB()
+app.get('/api', (req, res) => {console.log("Hello! I'm the Backend")})
 
-app.get('/', (req, res) => {console.log("Hello! I'm the Backend")})
-
-app.listen(port, () => {console.log('Listening on port: http://localhost:' + port)})
+//connect to database
+sql.connect(config)
+    .then((pool) => {
+        console.log('Database connected successfully')
+        //passing the pool to the app
+        app.locals.db = pool
+        app.listen(port, () => {console.log('Listening on port: http://localhost:' + port)})
+    })
+    .catch((err) => {
+        console.log('Error on DB Connect -> ' + err)
+    })
