@@ -10,6 +10,7 @@
                     <nav class="flex gap-4 mt-3">
                         <router-link :to="{ name : 'ChannelHome' }"><span class="text-xs text-textWhite bg-searchBarGray px-3 py-[2px] rounded-3xl hover:bg-gray ease-in-out duration-300">Home</span></router-link>
                         <router-link :to="{ name : 'ChannelAbout' }"><span class="text-xs text-textWhite bg-searchBarGray px-3 py-[2px] rounded-3xl hover:bg-gray ease-in-out duration-300">About</span></router-link>
+                        <router-link  v-if="isChannelUser" :to="{ name : 'Upload' }"><span class="text-xs text-textWhite bg-searchBarGray px-3 py-[2px] rounded-3xl hover:bg-gray ease-in-out duration-300">Upload</span></router-link>
                         <button v-show="isChannelUser"><span class="text-xs text-textWhite bg-almostBlack px-3 py-[2px] rounded-3xl hover:bg-[#ff0000] ease-in-out duration-300 border-2 border-[#ff0000]">Delete</span></button>
                     </nav>
                 </div>

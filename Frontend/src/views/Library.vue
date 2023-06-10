@@ -2,7 +2,7 @@
     <div class="mt-2">
         <div class=""><LibInfo/></div>
         <div class="mr-7 pl-3 pt-1 ml-[19rem]">
-            <SHVideo :view-desc="true" :change-styles="false" :add-hover-effect="true"/>
+            <SHVideo :view-desc="true" :change-styles="false" :add-hover-effect="true" :is-library="true"/>
         </div>
     </div>
 </template>

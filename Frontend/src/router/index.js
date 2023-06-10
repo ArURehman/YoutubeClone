@@ -7,6 +7,7 @@ import Channel from '../views/Channel.vue'
 import Library from '../views/Library.vue'
 import ChannelHome from '../views/ChannelHome.vue'
 import ChannelAbout from '../views/ChannelAbout.vue'
+import Upload from '../views/Upload.vue'
 
 const routes = [
     {
@@ -44,6 +45,11 @@ const routes = [
                 path: 'about',
                 name: 'ChannelAbout',
                 component: ChannelAbout
+            },
+            {
+                path: 'upload',
+                name: 'Upload',
+                component: Upload
             }
         ]
     },
