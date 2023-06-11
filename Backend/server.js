@@ -1,10 +1,11 @@
-import express from 'express'
-import sql from 'mssql'
-import cors from 'cors'
-import config from './Database/dbConfig.js'
+const express = require('express')
+const sql = require('mssql')
+const cors = require('cors')
+const config = require('./Database/dbConfig')
 
 const port = 3000
 const app = express()
+
 //Middleware
 app.use(cors());
 app.use(express.json());
