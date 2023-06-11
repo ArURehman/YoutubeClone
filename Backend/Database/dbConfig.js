@@ -1,8 +1,8 @@
 const config = {
-    user: 'sqlserver',
-    password: 'youtube',
-    server: '34.132.64.71',
-    database: 'youtube',
+    user: '',
+    password: '',
+    server: '',
+    database: '',
     options: {
         encrypt: false
     }
