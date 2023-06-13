@@ -10,7 +10,7 @@ const app = express()
 app.use(cors());
 app.use(express.json());
 
-app.get('/api/test', (req, res) => {console.log("Hello! I'm the Backend")})
+app.use('/api/videos', require('./Routes/videos'))
 
 //connect to database
 sql.connect(config)
